@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import './App.css';
 
-import CartProductDetails from './components/CartProductDetails'
-import CartFooter from './components/CartFooter'
+import ShoppingCartProductDetails from './components/ShoppingCartProductDetails'
+import ShoppingCartFooter from './components/ShoppingCartFooter'
+import ShoppingCartSteps from './components/ShoppingCartSteps'
 
 class App extends Component {
     render() {
@@ -15,17 +16,10 @@ class App extends Component {
                 </header>
                 <main className="app-main">
                     <div className="cart-content">
-                        <div className="cart-header">
-                            <div className="cart-header-steps-wrapper">
-                                <div className="cart-step">1</div>
-                                <div className="cart-step">2</div>
-                                <div className="cart-step">3</div>
-                                <div className="cart-step">4</div>
-                            </div>
-                        </div>
-                        <CartProductDetails ></CartProductDetails>
-                        <CartProductDetails ></CartProductDetails>
-                        <CartFooter></CartFooter>       
+                        <ShoppingCartSteps></ShoppingCartSteps>
+                        <ShoppingCartProductDetails></ShoppingCartProductDetails>
+                        <ShoppingCartProductDetails></ShoppingCartProductDetails>
+                        <ShoppingCartFooter></ShoppingCartFooter>       
                     </div>
                 </main>
 

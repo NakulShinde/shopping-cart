@@ -1,20 +1,22 @@
 import React, {Component} from 'react';
 
-const CartProductDetails = () => {
-    return <div className="cart-product-container">
-        <div className="cart-product">
-            <div className="cart-product-details">
-                <div className="image">
+import styles from './ShoppingCartProductDetails.module.css'
+
+const ShoppingCartProductDetails = () => {
+    return <div className={styles.cartProductContainer}>
+        <div className={styles.cartProduct}>
+            <div className={styles.cartProductDetails}>
+                <div className={styles.cartProductDetailsImage}>
                     <a href="#">
                         <img src="/images/Golden Elegance Tree 4 - DSC8750 TN.jpg"></img>
                     </a>
                 </div>
-                <div className="cart-product-name">
+                <div className={styles.cartProductName}>
                     <div>Product Name</div>
                     <div>Product sub details</div>
                 </div>
             </div>
-            <div className="cart-product-pricing-details">
+            <div className={styles.cartProductPricingDetails}>
                 <div>
                     Units:
                     <br></br>
@@ -35,4 +37,4 @@ const CartProductDetails = () => {
     </div>
 };
 
-export default CartProductDetails;
+export default ShoppingCartProductDetails;

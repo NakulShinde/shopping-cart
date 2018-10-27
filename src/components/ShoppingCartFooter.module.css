@@ -1,0 +1,26 @@
+
+.cardTotalSection {
+    display: flex;
+    margin: 0 10px;
+}
+.cardTotalSectionLeft {
+    flex: 2;
+}
+.cardTotalSectionRight {
+    flex: 1;
+}
+.cardTotalSectionRight div {
+    flex: 1;
+    padding: 10px;
+}
+.cardTotalSectionRight div span {
+    float: right;
+}
+.cartFooterFinalTotal {
+    border-top: 1px solid #cccccc;
+}
+@media screen and (max-width: 767px) {
+    .cardTotalSection {
+        display: block;
+    }
+}
