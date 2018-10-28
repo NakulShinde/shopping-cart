@@ -2,39 +2,81 @@ import React, {Component} from 'react';
 
 import styles from './ShoppingCartProductDetails.module.css'
 
-const ShoppingCartProductDetails = () => {
-    return <div className={styles.cartProductContainer}>
-        <div className={styles.cartProduct}>
-            <div className={styles.cartProductDetails}>
-                <div className={styles.cartProductDetailsImage}>
-                    <a href="#">
-                        <img src="/images/Golden Elegance Tree 4 - DSC8750 TN.jpg"></img>
-                    </a>
-                </div>
-                <div className={styles.cartProductName}>
-                    <div>Product Name</div>
-                    <div>Product sub details</div>
-                </div>
-            </div>
-            <div className={styles.cartProductPricingDetails}>
-                <div>
-                    Units:
-                    <br></br>
-                    <input value="1"></input>
-                </div>
-                <div>
-                    Per Unit Price:
-                    <br></br>
-                    10
-                </div>
-                <div>
-                    Total Price:
-                    <br></br>
-                    20
-                </div>
-            </div>
+import ProductUnits from './shared/ProductUnits'
+import {LabelPriceTag} from './shared/CommonTags'
+
+const ProductNameDetails = (props) => (
+    <div className={styles.cartProductName}>
+        <div>
+            <span className="label">Product Name:</span>
+            <br></br>
+            <span>
+                {props.product.name}</span>
         </div>
+        <div>Items id: {props.product.id}</div>
     </div>
+);
+
+const ProductInfo = (props) => (
+    <div className={styles.cartProductDetails}>
+        <div className={styles.cartProductDetailsImage}>
+            <a href="#">
+                <img src={props.product.icon}></img>
+            </a>
+        </div>
+        <ProductNameDetails product={props.product}></ProductNameDetails>
+    </div>
+);
+
+
+
+const ProductPricingDetails = (props) => (
+    <div className={styles.cartProductPricingDetails}>
+        <ProductUnits
+            numberOfUnits={props.product.numberOfUnits}
+            unitsInputChange={props.unitsInputChange}
+            labelText="Unit"></ProductUnits>
+        <LabelPriceTag label="Unit Price" value={props.product.pricePerUnit}></LabelPriceTag>
+        <LabelPriceTag
+            label="Total Price"
+            value={props.product.pricePerUnit * props.product.numberOfUnits}></LabelPriceTag>
+    </div>
+);
+
+class ShoppingCartProductDetails extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            product: {
+                name: "Golden Elegance Tree 1",
+                icon: '/images/Golden Elegance Tree 4 - DSC8750 TN.jpg',
+                id: 123457656876,
+                pricePerUnit: 12345,
+                numberOfUnits: 2
+            }
+        }
+    }
+    unitsInputChange(newUnits) {
+
+        this.setState((prev, newState)=> {
+            let product = Object.assign(prev.product, {numberOfUnits: newUnits});
+            return {
+                product: product
+            };
+        });
+    }
+    render() {
+        return (
+            <div className={styles.cartProductContainer}>
+                <div className={styles.cartProduct}>
+                    <ProductInfo product={this.state.product}></ProductInfo>
+                    <ProductPricingDetails
+                        product={this.state.product}
+                        unitsInputChange={this.unitsInputChange.bind(this)}></ProductPricingDetails>
+                </div>
+            </div>
+        )
+    };
 };
 
 export default ShoppingCartProductDetails;

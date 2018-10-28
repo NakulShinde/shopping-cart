@@ -1,9 +1,14 @@
 
 .cartHeader {
-    min-height: 15vh;
-    border-bottom: 1px #0000003d solid;
+    border-bottom: var(--border-style);
     border-bottom-style: dashed;
 }
+
+.cartStepWrapper {
+    text-align: center;
+    font-size: 12px;
+    font-weight: 500;
+  }
 
 .cartHeaderStepsWrapper {
     top: -35px;
@@ -15,20 +20,19 @@
 }
 
 .cartStep {
-    padding: 20px;
-    border: 1px solid #75d407;
-    background: #4CAF50;
-    /* rgba(139, 195, 74, 0.8);*/
-    border-radius: 50%;
-    line-height: 1;
+    padding: 15px;
+    border: var(--border-style);
+    background: var(--cart-step-background);
+    border-radius: 20%;
     height: 20px;
     width: 20px;
     text-align: center;
-    color: #ffffff;
+    color: var(--white-color);
 }
-.cartStep:hover {
-    background: #cccccc;
-    /*rgba(139, 195, 74, 0.6); */
+
+.cartStep:hover, .cartStepSelected {
+    background: var(--cart-step-background-hover);
     cursor: pointer;
-    color: #000000;
+    color: var(--black-color);
 }
+

@@ -1,20 +1,29 @@
-import React, {Component} from 'react';
+import React from 'react';
 
 import styles from './ShoppingCartFooter.module.css'
+import {Button, PrimaryButton} from './shared/Buttons'
+
+import {LabelPriceTag} from './shared/CommonTags'
 
 const ShoppingCartFooter = () => {
     return <div className={styles.cartfooter}>
         <div className={styles.cardTotalSection}>
-            <div className={styles.cardTotalSectionLeft}></div>
+            <div className={styles.cardTotalSectionLeft}>
+                <div>
+                    <Button text="Empty Cart"></Button>
+                    <Button text="Save Cart"></Button>
+                </div>
+            </div>
             <div className={styles.cardTotalSectionRight}>
-                <div>Total:
-                    <span>123</span>
-                </div>
-                <div>Tax (10%):
-                    <span>123</span>
-                </div>
-                <div className={styles.cartFooterFinalTotal}>Final Total:
-                    <span>123</span>
+                <LabelPriceTag label="Total" value="123"></LabelPriceTag>
+                <LabelPriceTag label="Tax (10%)" value="123"></LabelPriceTag>
+                <LabelPriceTag
+                    label="Final Cart Total"
+                    value="123"
+                    customClass={styles.cartFooterFinalTotal}></LabelPriceTag>
+
+                <div className={styles.cartFooterCheckout}>
+                    <PrimaryButton text="Checkout"></PrimaryButton>
                 </div>
             </div>
         </div>

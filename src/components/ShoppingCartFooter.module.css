@@ -13,11 +13,14 @@
     flex: 1;
     padding: 10px;
 }
-.cardTotalSectionRight div span {
+.cartFooterFinalTotal {
+    border-top: var(--border-style);
+}
+.cartFooterFinalTotal span:nth-child(2) {
     float: right;
 }
-.cartFooterFinalTotal {
-    border-top: 1px solid #cccccc;
+.cartFooterCheckout {
+    text-align: right;
 }
 @media screen and (max-width: 767px) {
     .cardTotalSection {

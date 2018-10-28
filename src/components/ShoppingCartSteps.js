@@ -2,17 +2,20 @@ import React, {Component} from 'react';
 
 import styles from './ShoppingCartSteps.module.css'
 
+const Step = (props) => (
+    <div className={styles.cartStepWrapper}>
+        <div className={styles.cartStep}>{props.text}</div>
+        {props.name}
+    </div>
+   );
+   
 const ShoppingCartSteps = () => {
 
     return <div className={styles.cartHeader}>
         <div className={styles.cartHeaderStepsWrapper}>
-            <div className={styles.cartStep}>1</div>
-            <div className={styles.cartStep}>2</div>
-            <div className={styles.cartStep}>3</div>
-            <div className={styles.cartStep}>4</div>
+            <Step text="1" name="My Cart"></Step>
+            <Step text="2" name="Payment"></Step>
         </div>
     </div>
 }
 export default ShoppingCartSteps;
-
-
