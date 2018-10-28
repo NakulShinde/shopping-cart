@@ -11,9 +11,15 @@ class ProductUnits extends Component {
     
     componentDidMount(){
         console.log("componentDidMount", this.props.numberOfUnits);
-
         this.setState({
             numberOfUnits : this.props.numberOfUnits
+        })
+    }
+
+    componentWillReceiveProps(newProps){
+        console.log("componentWillReceiveProps", newProps.numberOfUnits);
+        this.setState({
+            numberOfUnits : newProps.numberOfUnits
         })
     }
 

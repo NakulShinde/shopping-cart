@@ -27,8 +27,6 @@ const ProductInfo = (props) => (
     </div>
 );
 
-
-
 const ProductPricingDetails = (props) => (
     <div className={styles.cartProductPricingDetails}>
         <ProductUnits
@@ -45,33 +43,52 @@ const ProductPricingDetails = (props) => (
 class ShoppingCartProductDetails extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            product: {
-                name: "Golden Elegance Tree 1",
-                icon: '/images/Golden Elegance Tree 4 - DSC8750 TN.jpg',
-                id: 123457656876,
-                pricePerUnit: 12345,
-                numberOfUnits: 2
-            }
-        }
+        this.state = {}
     }
+
+    componentDidMount() {
+        console.log("ShoppingCartProductDetails componentDidMount", this.props.product);
+        this.setState({product: this.props.product});
+    }
+    componentWillReceiveProps(newProps) {
+
+        console.log("componentWillReceiveProps componentDidMount", newProps);
+        this.setState({product: newProps.product});
+    }
+
     unitsInputChange(newUnits) {
 
-        this.setState((prev, newState)=> {
+        this.setState((prev, newState) => {
             let product = Object.assign(prev.product, {numberOfUnits: newUnits});
-            return {
-                product: product
-            };
+            this.props.numberOfUnitsUpdate(product);
+            return {product: product};
         });
     }
+
+    removeProduct() {
+        this.props.removeProduct(this.state.product.id);
+    }
     render() {
+        if(!this.state.product){
+            return <div className={styles.cartProduct}>
+                No Product data. Please add product in cart.
+            </div>
+        }
+        const product = this.state.product;
         return (
-            <div className={styles.cartProductContainer}>
-                <div className={styles.cartProduct}>
-                    <ProductInfo product={this.state.product}></ProductInfo>
-                    <ProductPricingDetails
-                        product={this.state.product}
-                        unitsInputChange={this.unitsInputChange.bind(this)}></ProductPricingDetails>
+            <div className={styles.cartProduct}>
+                <ProductInfo product={product}></ProductInfo>
+                <ProductPricingDetails
+                    product={product}
+                    unitsInputChange={this
+                    .unitsInputChange
+                    .bind(this)}></ProductPricingDetails>
+                <div>
+                    <span
+                        className={styles.removeProduct}
+                        onClick={this
+                        .removeProduct
+                        .bind(this)}>x</span>
                 </div>
             </div>
         )
