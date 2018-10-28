@@ -8,8 +8,7 @@ import {LabelPriceTag} from './shared/CommonTags'
 const ProductNameDetails = (props) => (
     <div className={styles.cartProductName}>
         <div>
-            <span className="label">Product Name:</span>
-            <br></br>
+            <h4>Product Name:</h4>
             <span>
                 {props.product.name}</span>
         </div>

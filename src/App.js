@@ -1,34 +1,22 @@
 import React, {Component} from 'react';
 import './App.css';
 
+import AppHeader from './components/AppHeader'
 import ShoppingCartProductDetails from './components/ShoppingCartProductDetails'
 import ShoppingCartFooter from './components/ShoppingCartFooter'
 import ShoppingCartSteps from './components/ShoppingCartSteps'
+import UserShippingDetails from './components/UserShippingDetails'
 
 class App extends Component {
+    
     render() {
         return (
             <div className="app">
-                <header className="app-header">
-                    <h2>
-                        Shopping Cart
-                    </h2>
-                </header>
+            <AppHeader></AppHeader>
                 <main className="app-main">
                     <div className="cart-content">
                         <ShoppingCartSteps></ShoppingCartSteps>
-                        <div className="userDetails">
-                            <div className="userDetailsLeft">
-                                <div className="label">Shipping to:</div>
-                                <span>Nakul Shinde</span>
-                                <div className="label">Address:</div>
-                                <span>New sangavi, Pune</span>
-                            </div>
-                            <div className="userDetailsRight">
-                                <button className="button botton-default">Empty Cart</button>
-                                <button className="button botton-default">Save Cart</button>
-                            </div>
-                        </div>
+                        <UserShippingDetails></UserShippingDetails>
                         <ShoppingCartProductDetails></ShoppingCartProductDetails>
                         <ShoppingCartProductDetails></ShoppingCartProductDetails>
                         <ShoppingCartFooter></ShoppingCartFooter>

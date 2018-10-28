@@ -1,0 +1,43 @@
+
+.appHeader {
+    background-color: var(--header-background-color);
+    min-height: 15vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 50px;
+}
+.appHeader span {
+    font-size: calc(10px + 2vmin);
+    color: var(--white-color);
+    font-weight: 600;
+    font-size: 30px;
+}
+
+.themeSelection {
+  position: absolute;
+  width: 200px;
+  height: 50px;
+  right: 0;
+  top: 0;
+  display: flex;
+}
+.themeSelection h5{
+  color: var(--white-color);
+}
+.theme {
+  border: var(--border-style);
+  flex: 1;
+  margin: 5px;
+  cursor: pointer;
+}
+.themeGreen {
+  background-color: #4CAF50;
+}
+.themeBlue {
+  background-color: #2196F3;
+}
+.themeOrange {
+  background-color: #f44336;
+}

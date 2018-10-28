@@ -1,0 +1,13 @@
+.userDetails {
+    display: flex;
+    margin: 0 10px;
+    border-bottom: var(--border-style);
+}
+.userDetailsLeft {
+    flex: 1;
+    padding: 10px;
+}
+.userDetailsRight {
+    flex: 1;
+    text-align: right;
+}
