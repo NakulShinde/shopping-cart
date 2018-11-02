@@ -70,13 +70,13 @@ class ShoppingCartProductDetails extends Component {
     }
     render() {
         if(!this.state.product){
-            return <div className={styles.cartProduct}>
+            return <div className="cart-internal-content">
                 No Product data. Please add product in cart.
             </div>
         }
         const product = this.state.product;
         return (
-            <div className={styles.cartProduct}>
+            <div className="cart-internal-content">
                 <ProductInfo product={product}></ProductInfo>
                 <ProductPricingDetails
                     product={product}

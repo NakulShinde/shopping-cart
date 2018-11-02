@@ -129,7 +129,13 @@ h6 {
     box-shadow: var(--box-shadow);
     padding-bottom: 20px;
 }
-
+.cart-internal-content {
+    display: flex;
+    padding: 10px;
+    margin: 0 10px;
+    border-bottom: var(--border-style);
+    display: relative;
+}
 
 .app-footer {
     background-color: var(--footer-background-color);

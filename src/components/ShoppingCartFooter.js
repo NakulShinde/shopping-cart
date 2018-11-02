@@ -5,7 +5,7 @@ import {Button, PrimaryButton} from './shared/Buttons'
 
 import {LabelPriceTag} from './shared/CommonTags'
 
-class ShoppingCartFooter extends Component{
+class ShoppingCartFooter extends Component {
 
     constructor(props) {
         super(props);
@@ -16,23 +16,26 @@ class ShoppingCartFooter extends Component{
         };
     }
 
-    componentDidMount(){
-        this.setState({products: this.props.products});        
+    componentDidMount() {
+        this.setState({products: this.props.products});
     }
-    componentWillReceiveProps(newProps){
-        this.setState({products: newProps.products});        
+    componentWillReceiveProps(newProps) {
+        this.setState({products: newProps.products});
     }
 
     render() {
-        
-        const cartTotal =  this.state.products.reduce((sum, product) => {
-            return sum + (product.numberOfUnits * product.pricePerUnit);
-        },0);
 
-        const cartPercentage = cartTotal * (this.state.cartTaxPercentage/100);
+        const cartTotal = this
+            .state
+            .products
+            .reduce((sum, product) => {
+                return sum + (product.numberOfUnits * product.pricePerUnit);
+            }, 0);
+
+        const cartPercentage = cartTotal * (this.state.cartTaxPercentage / 100);
         const finalCartTotal = cartTotal + cartPercentage;
         return (
-            <div className={styles.cartfooter}>
+            <React.Fragment>
                 <div className={styles.cardTotalSection}>
                     <div className={styles.cardTotalSectionLeft}>
                         <div>
@@ -42,7 +45,9 @@ class ShoppingCartFooter extends Component{
                     </div>
                     <div className={styles.cardTotalSectionRight}>
                         <LabelPriceTag label="Total" value={cartTotal}></LabelPriceTag>
-                        <LabelPriceTag label={["Tax (",this.state.cartTaxPercentage, "%)"].join('')} value={cartPercentage}></LabelPriceTag>
+                        <LabelPriceTag
+                            label={["Tax (", this.state.cartTaxPercentage, "%)"].join('')}
+                            value={cartPercentage}></LabelPriceTag>
                         <LabelPriceTag
                             label="Final Cart Total"
                             value={finalCartTotal}
@@ -53,7 +58,7 @@ class ShoppingCartFooter extends Component{
                         </div>
                     </div>
                 </div>
-            </div>
+            </React.Fragment>
         );
     }
 };

@@ -1,11 +1,4 @@
 
-.cartProduct {
-    display: flex;
-    padding: 10px;
-    margin: 0 10px;
-    border-bottom: var(--border-style);
-    display: relative;
-}
 .removeProduct {
     position: relative;
     right: -5px;

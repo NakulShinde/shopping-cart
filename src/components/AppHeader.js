@@ -3,9 +3,7 @@ import React, {Component} from 'react';
 import styles from './AppHeader.module.css'
 
 class AppHeader extends Component {
-    constructor(props) {
-        super(props);
-    }
+    
     changeTheme(colorCode) {
         let root = document.documentElement;
         root.style.setProperty('--button-primary-background', colorCode);

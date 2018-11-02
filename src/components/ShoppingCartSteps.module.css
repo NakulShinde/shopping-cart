@@ -30,7 +30,7 @@
     color: var(--white-color);
 }
 
-.cartStep:hover, .cartStepSelected {
+.cartStep:hover, .cartStepActive {
     background: var(--cart-step-background-hover);
     cursor: pointer;
     color: var(--black-color);
