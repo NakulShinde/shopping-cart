@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 
 import styles from './ShoppingCartProductDetails.module.css'
 
-import ProductUnits from './shared/ProductUnits'
-import {LabelPriceTag} from './shared/CommonTags'
+import ProductUnits from './../shared/ProductUnits'
+import {LabelPriceTag} from './../shared/CommonTags'
 
 const ProductNameDetails = (props) => (
     <div className={styles.cartProductName}>
@@ -47,12 +47,9 @@ class ShoppingCartProductDetails extends Component {
     }
 
     componentDidMount() {
-        console.log("ShoppingCartProductDetails componentDidMount", this.props.product);
         this.setState({product: this.props.product});
     }
     componentWillReceiveProps(newProps) {
-
-        console.log("componentWillReceiveProps componentDidMount", newProps);
         this.setState({product: newProps.product});
     }
 
